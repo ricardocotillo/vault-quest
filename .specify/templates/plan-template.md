@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Precision**: Does this feature use BigInt/Decimal for all currency?
+- [ ] **Performance**: Will this maintain 60fps? Is the dashboard impact minimal?
+- [ ] **UX/Gamification**: Are tactile/sound cues integrated into the UX?
+- [ ] **Local-First**: Does this work fully offline? Is encryption handled if syncing?
+- [ ] **Modularity**: Does this follow the Quest/Loot pattern without core refactors?
 
 ## Project Structure
 

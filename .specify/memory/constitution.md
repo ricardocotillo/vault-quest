@@ -1,50 +1,59 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 0.0.0 → 1.0.0
+- List of modified principles:
+  - PRINCIPLE_1: [PRINCIPLE_1_NAME] → I. Precision & Integrity (Math)
+  - PRINCIPLE_2: [PRINCIPLE_2_NAME] → II. Gamification UX (Game-First)
+  - PRINCIPLE_3: [PRINCIPLE_3_NAME] → III. High-Performance Dashboard
+  - PRINCIPLE_4: [PRINCIPLE_4_NAME] → IV. Local-First Security & Privacy
+  - PRINCIPLE_5: [PRINCIPLE_5_NAME] → V. Modular Architecture (Quests & Loot)
+- Added sections: Technology & Tools, Development Workflow
+- Removed sections: None
+- Templates requiring updates:
+  - .specify/templates/plan-template.md (✅ updated)
+  - .specify/templates/spec-template.md (✅ updated guidance)
+  - .specify/templates/tasks-template.md (✅ updated guidance)
+- Follow-up TODOs: None
+-->
+
+# VaultQuest Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Precision & Integrity (Math)
+Financial accuracy is non-negotiable. Use BigInt or dedicated currency libraries (e.g., `decimal`) to eliminate floating-point errors. Every "Vault" (envelope) logic component MUST achieve at least 90% test coverage.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Gamification UX (Game-First)
+Maintain a "Modern Pixel Art" aesthetic across all components. Every financial interaction MUST trigger a tactile, rewarding animation or sound cue to reinforce the "Game-First" design system.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. High-Performance Dashboard
+The "Kingdom Map" dashboard MUST render instantly, even with dozens of active categories. All animations MUST maintain a consistent 60fps to preserve the immersive game feel.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Local-First Security & Privacy
+All financial data is treated as highly sensitive. Store data locally by default to ensure privacy. Any cloud-syncing features MUST employ strict encryption protocols for end-to-end security.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Modular Architecture (Quests & Loot)
+The system MUST be highly modular. Adding new "Quest types" (budget categories) or "Loot" (rewards) SHOULD be possible without refactoring core system logic, enabling rapid expansion of game mechanics.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology & Tools
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- **Language**: Flutter/Dart (optimized for 60fps rendering).
+- **Math**: BigInt or `decimal` package for all currency operations.
+- **Testing**: `flutter_test` with a 90% coverage threshold for core logic.
+- **Assets**: Modern Pixel Art style for UI; optimized sprites for performance.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+1. **Test-Driven Logic**: TDD is mandatory for financial logic to ensure mathematical integrity.
+2. **Performance Gating**: UI changes must be verified against the 60fps performance target on real devices.
+3. **Modular Expansion**: New features must follow the "Quest/Loot" modular pattern to prevent technical debt.
+4. **Local-First Verification**: Every feature must be fully functional offline before cloud sync is considered.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This Constitution takes absolute precedence over all other development practices and conventions.
+- Amendments require a version bump and updated documentation in this file.
+- All Pull Requests must verify compliance with these principles as part of the review process.
+- Versioning follows semantic rules (MAJOR for principle removals, MINOR for additions, PATCH for clarifications).
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-04-01 | **Last Amended**: 2026-04-01
