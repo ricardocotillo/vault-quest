@@ -139,7 +139,7 @@ class _KingdomMapScreenState extends State<KingdomMapScreen>
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          '${_formatGpDecimal(totalBalance)}',
+                          _formatGpDecimal(totalBalance),
                           style: textTheme.titleLarge,
                         ),
                       ],

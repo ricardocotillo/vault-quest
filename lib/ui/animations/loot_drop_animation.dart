@@ -17,7 +17,8 @@ class LootDropAnimation extends StatefulWidget {
   State<LootDropAnimation> createState() => _LootDropAnimationState();
 }
 
-class _LootDropAnimationState extends State<LootDropAnimation> with SingleTickerProviderStateMixin {
+class _LootDropAnimationState extends State<LootDropAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _opacityAnimation;
@@ -48,7 +49,7 @@ class _LootDropAnimationState extends State<LootDropAnimation> with SingleTicker
   }
 
   Future<void> _playFanfare() async {
-    // In a real app, we would have a local asset. 
+    // In a real app, we would have a local asset.
     // For this prototype, we'll assume it exists or fail silently.
     try {
       // await _audioPlayer.play(AssetSource('sounds/fanfare.mp3'));
@@ -65,7 +66,7 @@ class _LootDropAnimationState extends State<LootDropAnimation> with SingleTicker
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.black.withOpacity(0.8),
+      color: Colors.black.withValues(alpha: 0.8),
       child: Center(
         child: AnimatedBuilder(
           animation: _controller,
@@ -85,11 +86,12 @@ class _LootDropAnimationState extends State<LootDropAnimation> with SingleTicker
                     const SizedBox(height: 24),
                     Text(
                       'HARVEST COMPLETE',
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        color: AppTheme.gildedGold,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 4,
-                      ),
+                      style: Theme.of(context).textTheme.headlineMedium
+                          ?.copyWith(
+                            color: AppTheme.gildedGold,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 4,
+                          ),
                     ),
                     const SizedBox(height: 16),
                     Text(
@@ -103,7 +105,7 @@ class _LootDropAnimationState extends State<LootDropAnimation> with SingleTicker
                     Text(
                       'TREASURY SECURED',
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                        color: AppTheme.rusticParchment.withOpacity(0.7),
+                        color: AppTheme.rusticParchment.withValues(alpha: 0.7),
                         letterSpacing: 2,
                       ),
                     ),
