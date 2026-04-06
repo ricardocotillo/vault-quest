@@ -28,7 +28,9 @@ class _DitherShaderState extends State<DitherShader> {
 
   Future<void> _loadShader() async {
     try {
-      final program = await FragmentProgram.fromAsset('lib/core/theme/dither_shader.frag');
+      final program = await FragmentProgram.fromAsset(
+        'lib/core/theme/dither_shader.frag',
+      );
       setState(() {
         _shader = program.fragmentShader();
       });
@@ -67,12 +69,12 @@ class _DitherPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     shader.setFloat(0, size.width);
     shader.setFloat(1, size.height);
-    shader.setFloat(2, color1.red / 255);
-    shader.setFloat(3, color1.green / 255);
-    shader.setFloat(4, color1.blue / 255);
-    shader.setFloat(5, color2.red / 255);
-    shader.setFloat(6, color2.green / 255);
-    shader.setFloat(7, color2.blue / 255);
+    shader.setFloat(2, color1.r);
+    shader.setFloat(3, color1.g);
+    shader.setFloat(4, color1.b);
+    shader.setFloat(5, color2.r);
+    shader.setFloat(6, color2.g);
+    shader.setFloat(7, color2.b);
 
     final paint = Paint()..shader = shader;
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);

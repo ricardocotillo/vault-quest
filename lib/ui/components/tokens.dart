@@ -10,6 +10,7 @@ class VQColors {
   static const Color surface = AppTheme.midnightVoid;
   static const Color surfaceLowest = Color(0xFF0D031D);
   static const Color surfaceContainerLow = Color(0xFF13052A);
+  static const Color surfaceContainer = Color(0xFF1A063B);
   static const Color surfaceContainerHigh = Color(0xFF240A4D);
   static const Color surfaceContainerHighest = Color(0xFF2E0D61);
 
