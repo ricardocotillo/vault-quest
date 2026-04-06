@@ -29,6 +29,7 @@ void main() {
         providers: [
           BlocProvider(create: (context) => KingdomMapBloc(questRepo)),
           BlocProvider(create: (context) => BudgetBloc(questRepo, playerRepo)),
+          BlocProvider(create: (context) => AddVaultBloc(questRepo)),
           BlocProvider(
             create: (context) =>
                 PlayerProfileBloc(playerRepo)..add(LoadPlayerProfile()),
