@@ -136,7 +136,7 @@ class AddVaultBloc extends Bloc<AddVaultEvent, AddVaultState> {
           selectedPreset: event.preset,
           name: event.preset.name,
           iconCodePoint: event.preset.icon.codePoint,
-          colorValue: event.preset.color.value,
+          colorValue: event.preset.color.toARGB32(),
         ),
       );
     });

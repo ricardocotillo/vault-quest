@@ -149,7 +149,7 @@ class _AddVaultScreenState extends State<AddVaultScreen> {
           Container(
             height: 48,
             decoration: BoxDecoration(
-              color: Color(state.colorValue ?? VQColors.primary.value),
+              color: Color(state.colorValue ?? VQColors.primary.toARGB32()),
               border: Border.all(color: VQColors.primary),
             ),
           ),
