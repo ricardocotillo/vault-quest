@@ -101,10 +101,7 @@ class _KingdomMapScreenState extends State<KingdomMapScreen>
                         color: VQColors.surfaceContainerHighest,
                         border: Border.all(color: VQColors.primary, width: 2),
                       ),
-                      child: Image.asset(
-                        'assets/images/hero_avatar.png',
-                        fit: BoxFit.cover,
-                      ),
+                      child: const FlutterLogo(),
                     ),
                     const SizedBox(width: 12),
                     Column(

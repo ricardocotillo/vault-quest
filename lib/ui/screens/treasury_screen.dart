@@ -65,7 +65,7 @@ class TreasuryScreen extends StatelessWidget {
           Text(
             'Complete your first pay cycle to harvest gold.',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: AppTheme.rusticParchment.withOpacity(0.6),
+              color: AppTheme.rusticParchment.withValues(alpha: 0.6),
             ),
           ),
         ],

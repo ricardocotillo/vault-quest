@@ -12,7 +12,10 @@ class PlayerProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PLAYER STATUS', style: Theme.of(context).textTheme.headlineSmall),
+        title: Text(
+          'PLAYER STATUS',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -77,8 +80,10 @@ class PlayerProfileScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('EXPERIENCE', style: Theme.of(context).textTheme.labelSmall),
-            Text('${player.xp} / ${EvolutionLogic.xpForNextLevel(player.level)} XP', 
-                 style: Theme.of(context).textTheme.labelSmall),
+            Text(
+              '${player.xp} / ${EvolutionLogic.xpForNextLevel(player.level)} XP',
+              style: Theme.of(context).textTheme.labelSmall,
+            ),
           ],
         ),
         const SizedBox(height: 8),
@@ -86,8 +91,10 @@ class PlayerProfileScreen extends StatelessWidget {
           height: 20,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: AppTheme.midnightVoid.withOpacity(0.3),
-            border: Border.all(color: AppTheme.lifeEssence.withOpacity(0.3)),
+            color: AppTheme.midnightVoid.withValues(alpha: 0.3),
+            border: Border.all(
+              color: AppTheme.lifeEssence.withValues(alpha: 0.3),
+            ),
           ),
           child: FractionallySizedBox(
             alignment: Alignment.centerLeft,
@@ -111,9 +118,17 @@ class PlayerProfileScreen extends StatelessWidget {
       children: [
         _buildStatRow(context, 'THE STASH', '${player.stashBalance} G'),
         const SizedBox(height: 16),
-        _buildStatRow(context, 'LOOT UNLOCKED', '${player.unlockedLoot.length} ITEMS'),
+        _buildStatRow(
+          context,
+          'LOOT UNLOCKED',
+          '${player.unlockedLoot.length} ITEMS',
+        ),
         const SizedBox(height: 16),
-        _buildStatRow(context, 'LAST MEDITATION', player.lastLogin.toString().split('.')[0]),
+        _buildStatRow(
+          context,
+          'LAST MEDITATION',
+          player.lastLogin.toString().split('.')[0],
+        ),
       ],
     );
   }
@@ -123,10 +138,13 @@ class PlayerProfileScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(label, style: Theme.of(context).textTheme.labelMedium),
-        Text(value, style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: AppTheme.rusticParchment,
-          fontWeight: FontWeight.bold,
-        )),
+        Text(
+          value,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            color: AppTheme.rusticParchment,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ],
     );
   }

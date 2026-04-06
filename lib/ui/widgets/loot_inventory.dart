@@ -19,9 +19,7 @@ class LootInventory extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        unlockedLoot.isEmpty
-          ? _buildEmptyState(context)
-          : _buildGrid(context),
+        unlockedLoot.isEmpty ? _buildEmptyState(context) : _buildGrid(context),
       ],
     );
   }
@@ -30,14 +28,16 @@ class LootInventory extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppTheme.midnightVoid.withOpacity(0.3),
-        border: Border.all(color: AppTheme.rusticParchment.withOpacity(0.2)),
+        color: AppTheme.midnightVoid.withValues(alpha: 0.3),
+        border: Border.all(
+          color: AppTheme.rusticParchment.withValues(alpha: 0.2),
+        ),
       ),
       child: Center(
         child: Text(
           'NO LOOT RECOVERED YET',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: AppTheme.rusticParchment.withOpacity(0.5),
+            color: AppTheme.rusticParchment.withValues(alpha: 0.5),
           ),
         ),
       ),
@@ -57,10 +57,16 @@ class LootInventory extends StatelessWidget {
       itemBuilder: (context, index) {
         return Container(
           decoration: BoxDecoration(
-            color: AppTheme.midnightVoid.withOpacity(0.5),
-            border: Border.all(color: AppTheme.gildedGold.withOpacity(0.3)),
+            color: AppTheme.midnightVoid.withValues(alpha: 0.5),
+            border: Border.all(
+              color: AppTheme.gildedGold.withValues(alpha: 0.3),
+            ),
           ),
-          child: const Icon(Icons.inventory_2, color: AppTheme.gildedGold, size: 24),
+          child: const Icon(
+            Icons.inventory_2,
+            color: AppTheme.gildedGold,
+            size: 24,
+          ),
         );
       },
     );

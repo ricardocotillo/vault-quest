@@ -46,9 +46,11 @@ class QuestLocationNode extends StatelessWidget {
   }
 
   Widget _buildIcon({bool isFeedback = false, bool isHighlighted = false}) {
-    final iconData = location.isUnderSiege ? Icons.pest_control_rodent : _getIconForTheme(location.theme);
+    final iconData = location.isUnderSiege
+        ? Icons.pest_control_rodent
+        : _getIconForTheme(location.theme);
     var color = location.isUnderSiege ? Colors.redAccent : AppTheme.lifeEssence;
-    
+
     if (isHighlighted) {
       color = AppTheme.gildedGold;
     }
@@ -57,7 +59,7 @@ class QuestLocationNode extends StatelessWidget {
       width: 80,
       height: 80,
       decoration: BoxDecoration(
-        color: AppTheme.midnightVoid.withOpacity(isFeedback ? 0.8 : 0.5),
+        color: AppTheme.midnightVoid.withValues(alpha: isFeedback ? 0.8 : 0.5),
         border: Border.all(color: color, width: isHighlighted ? 4 : 2),
       ),
       child: Stack(
@@ -72,7 +74,11 @@ class QuestLocationNode extends StatelessWidget {
                 color: Colors.redAccent,
                 child: const Text(
                   'UNDER SIEGE',
-                  style: TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 8,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -84,7 +90,7 @@ class QuestLocationNode extends StatelessWidget {
   Widget _buildLabel(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      color: AppTheme.midnightVoid.withOpacity(0.8),
+      color: AppTheme.midnightVoid.withValues(alpha: 0.8),
       child: Text(
         location.name.toUpperCase(),
         style: Theme.of(context).textTheme.labelSmall?.copyWith(
@@ -138,19 +144,29 @@ class QuestLocationNode extends StatelessWidget {
     );
   }
 
-  void _showSacrificeDialog(BuildContext context, QuestLocation source, QuestLocation target, Offset dropOffset) {
+  void _showSacrificeDialog(
+    BuildContext context,
+    QuestLocation source,
+    QuestLocation target,
+    Offset dropOffset,
+  ) {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
         backgroundColor: AppTheme.midnightVoid,
         title: Text('SACRIFICE', style: TextStyle(color: AppTheme.gildedGold)),
-        content: Text('Sacrifice gold from ${source.name} to reinforce ${target.name}?'),
+        content: Text(
+          'Sacrifice gold from ${source.name} to reinforce ${target.name}?',
+        ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text('CANCEL')),
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('CANCEL'),
+          ),
           ElevatedButton(
             onPressed: () {
               final amount = Decimal.parse('50');
-              
+
               // Trigger Animation
               final renderBox = context.findRenderObject() as RenderBox;
               final targetOffset = renderBox.localToGlobal(Offset.zero);

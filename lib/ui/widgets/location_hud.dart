@@ -62,7 +62,7 @@ class LocationHUD extends StatelessWidget {
         Text(
           'REMAINING GOLD',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-            color: AppTheme.midnightVoid.withOpacity(0.6),
+            color: AppTheme.midnightVoid.withValues(alpha: 0.6),
           ),
         ),
         Text(
@@ -90,9 +90,9 @@ class LocationHUD extends StatelessWidget {
           children: [
             Text(
               'ALLOCATED: ${CurrencyMath.formatForDisplay(location.allocatedBudget)}',
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                color: AppTheme.midnightVoid,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.labelSmall?.copyWith(color: AppTheme.midnightVoid),
             ),
             Text(
               '${(progress * 100).toInt()}%',
@@ -108,15 +108,13 @@ class LocationHUD extends StatelessWidget {
           height: 12,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: AppTheme.midnightVoid.withOpacity(0.1),
+            color: AppTheme.midnightVoid.withValues(alpha: 0.1),
             borderRadius: BorderRadius.zero,
           ),
           child: FractionallySizedBox(
             alignment: Alignment.centerLeft,
             widthFactor: progress,
-            child: Container(
-              color: AppTheme.lifeEssence,
-            ),
+            child: Container(color: AppTheme.lifeEssence),
           ),
         ),
       ],
@@ -129,7 +127,7 @@ class LocationHUD extends StatelessWidget {
         Text(
           'BREAK THE SEAL TO SPEND',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-            color: AppTheme.midnightVoid.withOpacity(0.6),
+            color: AppTheme.midnightVoid.withValues(alpha: 0.6),
             letterSpacing: 2,
           ),
         ),
