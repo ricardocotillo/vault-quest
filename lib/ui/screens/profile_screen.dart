@@ -12,6 +12,11 @@ class PlayerProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: Theme.of(context).colorScheme.primary,
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
           'PLAYER STATUS',
           style: Theme.of(context).textTheme.headlineSmall,

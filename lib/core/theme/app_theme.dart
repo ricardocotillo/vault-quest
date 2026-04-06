@@ -9,7 +9,7 @@ class AppTheme {
 
   static ThemeData get theme {
     final textTheme = _textTheme;
-    
+
     return ThemeData(
       useMaterial3: true,
       scaffoldBackgroundColor: midnightVoid,

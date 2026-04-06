@@ -1,6 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 import 'package:envelope/blocs/kingdom_map_bloc.dart';
@@ -94,14 +95,17 @@ class _KingdomMapScreenState extends State<KingdomMapScreen>
               children: [
                 Row(
                   children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: VQColors.surfaceContainerHighest,
-                        border: Border.all(color: VQColors.primary, width: 2),
+                    GestureDetector(
+                      onTap: () => context.push('/profile'),
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: VQColors.surfaceContainerHighest,
+                          border: Border.all(color: VQColors.primary, width: 2),
+                        ),
+                        child: const FlutterLogo(),
                       ),
-                      child: const FlutterLogo(),
                     ),
                     const SizedBox(width: 12),
                     Column(
