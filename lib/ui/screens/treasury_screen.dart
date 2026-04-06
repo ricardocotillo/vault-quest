@@ -13,7 +13,10 @@ class TreasuryScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('TREASURY', style: Theme.of(context).textTheme.headlineSmall),
+        title: Text(
+          'TREASURY',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -46,16 +49,24 @@ class TreasuryScreen extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.account_balance_wallet_outlined, size: 64, color: AppTheme.rusticParchment),
+          const Icon(
+            Icons.account_balance_wallet_outlined,
+            size: 64,
+            color: AppTheme.rusticParchment,
+          ),
           const SizedBox(height: 16),
           Text(
             'THE TREASURY IS EMPTY',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(color: AppTheme.rusticParchment),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(color: AppTheme.rusticParchment),
           ),
           const SizedBox(height: 8),
           Text(
             'Complete your first pay cycle to harvest gold.',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: AppTheme.rusticParchment.withOpacity(0.6)),
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: AppTheme.rusticParchment.withOpacity(0.6),
+            ),
           ),
         ],
       ),
@@ -63,15 +74,19 @@ class TreasuryScreen extends StatelessWidget {
   }
 
   Widget _buildCycleCard(BuildContext context, PayCycle cycle) {
-    final dateRange = '${DateFormat('MMM d').format(cycle.startDate)} - ${DateFormat('MMM d, y').format(cycle.endDate)}';
-    
+    final dateRange =
+        '${DateFormat('MMM d').format(cycle.startDate)} - ${DateFormat('MMM d, y').format(cycle.endDate)}';
+
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: AppTheme.midnightVoid.withOpacity(0.4),
+        color: AppTheme.midnightVoid.withValues(alpha: 0.4),
         border: Border(
-          bottom: BorderSide(color: AppTheme.gildedGold.withOpacity(0.1), width: 2),
+          bottom: BorderSide(
+            color: AppTheme.gildedGold.withValues(alpha: 0.1),
+            width: 2,
+          ),
         ),
         // borderRadius: BorderRadius.zero, // Default is zero
       ),
@@ -83,12 +98,16 @@ class TreasuryScreen extends StatelessWidget {
             children: [
               Text(
                 'HARVEST CYCLE',
-                style: Theme.of(context).textTheme.labelSmall?.copyWith(color: AppTheme.gildedGold),
+                style: Theme.of(
+                  context,
+                ).textTheme.labelSmall?.copyWith(color: AppTheme.gildedGold),
               ),
               const SizedBox(height: 4),
               Text(
                 dateRange,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: AppTheme.rusticParchment),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppTheme.rusticParchment,
+                ),
               ),
             ],
           ),
@@ -105,7 +124,7 @@ class TreasuryScreen extends StatelessWidget {
               Text(
                 'SECURED',
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: AppTheme.lifeEssence.withOpacity(0.7),
+                  color: AppTheme.lifeEssence.withValues(alpha: 0.7),
                 ),
               ),
             ],
