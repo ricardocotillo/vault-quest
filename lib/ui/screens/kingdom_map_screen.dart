@@ -14,6 +14,7 @@ import 'package:envelope/ui/components/mana_bar.dart';
 import 'package:envelope/ui/components/structure_card.dart';
 import 'package:envelope/ui/components/tokens.dart';
 import 'package:envelope/ui/widgets/quest_location_node.dart';
+import 'package:envelope/ui/screens/vault_preset_picker.dart';
 
 class KingdomMapScreen extends StatefulWidget {
   const KingdomMapScreen({super.key});
@@ -233,6 +234,10 @@ class _KingdomMapScreenState extends State<KingdomMapScreen>
                     padding: const EdgeInsets.only(bottom: 24),
                     child: _buildStructureCard(context, loc),
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: _buildAddStructureCard(context),
                 ),
                 const SizedBox(height: 48),
                 GridView.count(
@@ -472,6 +477,58 @@ class _KingdomMapScreenState extends State<KingdomMapScreen>
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildAddStructureCard(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet(
+          context: context,
+          backgroundColor: Colors.transparent,
+          isScrollControlled: true,
+          builder: (context) => const VaultPresetPicker(),
+        );
+      },
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(32),
+        decoration: BoxDecoration(
+          color: VQColors.surfaceContainerLow.withValues(alpha: 0.5),
+          border: Border.all(
+            color: VQColors.primary.withValues(alpha: 0.3),
+            width: 2,
+            style: BorderStyle.solid,
+          ),
+        ),
+        child: Column(
+          children: [
+            const Icon(
+              Icons.add_home_work_outlined,
+              color: VQColors.primary,
+              size: 48,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'ERECT NEW STRUCTURE',
+              style: textTheme.titleMedium?.copyWith(
+                color: VQColors.primary,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Expand your kingdom\'s influence',
+              style: textTheme.bodySmall?.copyWith(
+                color: VQColors.tertiary.withValues(alpha: 0.7),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -545,6 +545,106 @@ class $QuestLocationsTable extends QuestLocations
     type: DriftSqlType.double,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _iconCodePointMeta = const VerificationMeta(
+    'iconCodePoint',
+  );
+  @override
+  late final GeneratedColumn<int> iconCodePoint = GeneratedColumn<int>(
+    'icon_code_point',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _colorValueMeta = const VerificationMeta(
+    'colorValue',
+  );
+  @override
+  late final GeneratedColumn<int> colorValue = GeneratedColumn<int>(
+    'color_value',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _fundingSourceMeta = const VerificationMeta(
+    'fundingSource',
+  );
+  @override
+  late final GeneratedColumn<String> fundingSource = GeneratedColumn<String>(
+    'funding_source',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _renewalFrequencyMeta = const VerificationMeta(
+    'renewalFrequency',
+  );
+  @override
+  late final GeneratedColumn<String> renewalFrequency = GeneratedColumn<String>(
+    'renewal_frequency',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _rolloverRuleMeta = const VerificationMeta(
+    'rolloverRule',
+  );
+  @override
+  late final GeneratedColumn<String> rolloverRule = GeneratedColumn<String>(
+    'rollover_rule',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _overspendBehaviorMeta = const VerificationMeta(
+    'overspendBehavior',
+  );
+  @override
+  late final GeneratedColumn<String> overspendBehavior =
+      GeneratedColumn<String>(
+        'overspend_behavior',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _autoFillDayMeta = const VerificationMeta(
+    'autoFillDay',
+  );
+  @override
+  late final GeneratedColumn<int> autoFillDay = GeneratedColumn<int>(
+    'auto_fill_day',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _lowBalanceAlertMeta = const VerificationMeta(
+    'lowBalanceAlert',
+  );
+  @override
+  late final GeneratedColumn<String> lowBalanceAlert = GeneratedColumn<String>(
+    'low_balance_alert',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _targetDateMeta = const VerificationMeta(
+    'targetDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> targetDate = GeneratedColumn<DateTime>(
+    'target_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -555,6 +655,15 @@ class $QuestLocationsTable extends QuestLocations
     isUnderSiege,
     x,
     y,
+    iconCodePoint,
+    colorValue,
+    fundingSource,
+    renewalFrequency,
+    rolloverRule,
+    overspendBehavior,
+    autoFillDay,
+    lowBalanceAlert,
+    targetDate,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -630,6 +739,81 @@ class $QuestLocationsTable extends QuestLocations
     } else if (isInserting) {
       context.missing(_yMeta);
     }
+    if (data.containsKey('icon_code_point')) {
+      context.handle(
+        _iconCodePointMeta,
+        iconCodePoint.isAcceptableOrUnknown(
+          data['icon_code_point']!,
+          _iconCodePointMeta,
+        ),
+      );
+    }
+    if (data.containsKey('color_value')) {
+      context.handle(
+        _colorValueMeta,
+        colorValue.isAcceptableOrUnknown(data['color_value']!, _colorValueMeta),
+      );
+    }
+    if (data.containsKey('funding_source')) {
+      context.handle(
+        _fundingSourceMeta,
+        fundingSource.isAcceptableOrUnknown(
+          data['funding_source']!,
+          _fundingSourceMeta,
+        ),
+      );
+    }
+    if (data.containsKey('renewal_frequency')) {
+      context.handle(
+        _renewalFrequencyMeta,
+        renewalFrequency.isAcceptableOrUnknown(
+          data['renewal_frequency']!,
+          _renewalFrequencyMeta,
+        ),
+      );
+    }
+    if (data.containsKey('rollover_rule')) {
+      context.handle(
+        _rolloverRuleMeta,
+        rolloverRule.isAcceptableOrUnknown(
+          data['rollover_rule']!,
+          _rolloverRuleMeta,
+        ),
+      );
+    }
+    if (data.containsKey('overspend_behavior')) {
+      context.handle(
+        _overspendBehaviorMeta,
+        overspendBehavior.isAcceptableOrUnknown(
+          data['overspend_behavior']!,
+          _overspendBehaviorMeta,
+        ),
+      );
+    }
+    if (data.containsKey('auto_fill_day')) {
+      context.handle(
+        _autoFillDayMeta,
+        autoFillDay.isAcceptableOrUnknown(
+          data['auto_fill_day']!,
+          _autoFillDayMeta,
+        ),
+      );
+    }
+    if (data.containsKey('low_balance_alert')) {
+      context.handle(
+        _lowBalanceAlertMeta,
+        lowBalanceAlert.isAcceptableOrUnknown(
+          data['low_balance_alert']!,
+          _lowBalanceAlertMeta,
+        ),
+      );
+    }
+    if (data.containsKey('target_date')) {
+      context.handle(
+        _targetDateMeta,
+        targetDate.isAcceptableOrUnknown(data['target_date']!, _targetDateMeta),
+      );
+    }
     return context;
   }
 
@@ -671,6 +855,42 @@ class $QuestLocationsTable extends QuestLocations
         DriftSqlType.double,
         data['${effectivePrefix}y'],
       )!,
+      iconCodePoint: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}icon_code_point'],
+      ),
+      colorValue: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}color_value'],
+      ),
+      fundingSource: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}funding_source'],
+      ),
+      renewalFrequency: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}renewal_frequency'],
+      ),
+      rolloverRule: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}rollover_rule'],
+      ),
+      overspendBehavior: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}overspend_behavior'],
+      ),
+      autoFillDay: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}auto_fill_day'],
+      ),
+      lowBalanceAlert: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}low_balance_alert'],
+      ),
+      targetDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}target_date'],
+      ),
     );
   }
 
@@ -689,6 +909,15 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
   final bool isUnderSiege;
   final double x;
   final double y;
+  final int? iconCodePoint;
+  final int? colorValue;
+  final String? fundingSource;
+  final String? renewalFrequency;
+  final String? rolloverRule;
+  final String? overspendBehavior;
+  final int? autoFillDay;
+  final String? lowBalanceAlert;
+  final DateTime? targetDate;
   const QuestLocation({
     required this.id,
     required this.name,
@@ -698,6 +927,15 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
     required this.isUnderSiege,
     required this.x,
     required this.y,
+    this.iconCodePoint,
+    this.colorValue,
+    this.fundingSource,
+    this.renewalFrequency,
+    this.rolloverRule,
+    this.overspendBehavior,
+    this.autoFillDay,
+    this.lowBalanceAlert,
+    this.targetDate,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -710,6 +948,33 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
     map['is_under_siege'] = Variable<bool>(isUnderSiege);
     map['x'] = Variable<double>(x);
     map['y'] = Variable<double>(y);
+    if (!nullToAbsent || iconCodePoint != null) {
+      map['icon_code_point'] = Variable<int>(iconCodePoint);
+    }
+    if (!nullToAbsent || colorValue != null) {
+      map['color_value'] = Variable<int>(colorValue);
+    }
+    if (!nullToAbsent || fundingSource != null) {
+      map['funding_source'] = Variable<String>(fundingSource);
+    }
+    if (!nullToAbsent || renewalFrequency != null) {
+      map['renewal_frequency'] = Variable<String>(renewalFrequency);
+    }
+    if (!nullToAbsent || rolloverRule != null) {
+      map['rollover_rule'] = Variable<String>(rolloverRule);
+    }
+    if (!nullToAbsent || overspendBehavior != null) {
+      map['overspend_behavior'] = Variable<String>(overspendBehavior);
+    }
+    if (!nullToAbsent || autoFillDay != null) {
+      map['auto_fill_day'] = Variable<int>(autoFillDay);
+    }
+    if (!nullToAbsent || lowBalanceAlert != null) {
+      map['low_balance_alert'] = Variable<String>(lowBalanceAlert);
+    }
+    if (!nullToAbsent || targetDate != null) {
+      map['target_date'] = Variable<DateTime>(targetDate);
+    }
     return map;
   }
 
@@ -723,6 +988,33 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
       isUnderSiege: Value(isUnderSiege),
       x: Value(x),
       y: Value(y),
+      iconCodePoint: iconCodePoint == null && nullToAbsent
+          ? const Value.absent()
+          : Value(iconCodePoint),
+      colorValue: colorValue == null && nullToAbsent
+          ? const Value.absent()
+          : Value(colorValue),
+      fundingSource: fundingSource == null && nullToAbsent
+          ? const Value.absent()
+          : Value(fundingSource),
+      renewalFrequency: renewalFrequency == null && nullToAbsent
+          ? const Value.absent()
+          : Value(renewalFrequency),
+      rolloverRule: rolloverRule == null && nullToAbsent
+          ? const Value.absent()
+          : Value(rolloverRule),
+      overspendBehavior: overspendBehavior == null && nullToAbsent
+          ? const Value.absent()
+          : Value(overspendBehavior),
+      autoFillDay: autoFillDay == null && nullToAbsent
+          ? const Value.absent()
+          : Value(autoFillDay),
+      lowBalanceAlert: lowBalanceAlert == null && nullToAbsent
+          ? const Value.absent()
+          : Value(lowBalanceAlert),
+      targetDate: targetDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(targetDate),
     );
   }
 
@@ -740,6 +1032,17 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
       isUnderSiege: serializer.fromJson<bool>(json['isUnderSiege']),
       x: serializer.fromJson<double>(json['x']),
       y: serializer.fromJson<double>(json['y']),
+      iconCodePoint: serializer.fromJson<int?>(json['iconCodePoint']),
+      colorValue: serializer.fromJson<int?>(json['colorValue']),
+      fundingSource: serializer.fromJson<String?>(json['fundingSource']),
+      renewalFrequency: serializer.fromJson<String?>(json['renewalFrequency']),
+      rolloverRule: serializer.fromJson<String?>(json['rolloverRule']),
+      overspendBehavior: serializer.fromJson<String?>(
+        json['overspendBehavior'],
+      ),
+      autoFillDay: serializer.fromJson<int?>(json['autoFillDay']),
+      lowBalanceAlert: serializer.fromJson<String?>(json['lowBalanceAlert']),
+      targetDate: serializer.fromJson<DateTime?>(json['targetDate']),
     );
   }
   @override
@@ -754,6 +1057,15 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
       'isUnderSiege': serializer.toJson<bool>(isUnderSiege),
       'x': serializer.toJson<double>(x),
       'y': serializer.toJson<double>(y),
+      'iconCodePoint': serializer.toJson<int?>(iconCodePoint),
+      'colorValue': serializer.toJson<int?>(colorValue),
+      'fundingSource': serializer.toJson<String?>(fundingSource),
+      'renewalFrequency': serializer.toJson<String?>(renewalFrequency),
+      'rolloverRule': serializer.toJson<String?>(rolloverRule),
+      'overspendBehavior': serializer.toJson<String?>(overspendBehavior),
+      'autoFillDay': serializer.toJson<int?>(autoFillDay),
+      'lowBalanceAlert': serializer.toJson<String?>(lowBalanceAlert),
+      'targetDate': serializer.toJson<DateTime?>(targetDate),
     };
   }
 
@@ -766,6 +1078,15 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
     bool? isUnderSiege,
     double? x,
     double? y,
+    Value<int?> iconCodePoint = const Value.absent(),
+    Value<int?> colorValue = const Value.absent(),
+    Value<String?> fundingSource = const Value.absent(),
+    Value<String?> renewalFrequency = const Value.absent(),
+    Value<String?> rolloverRule = const Value.absent(),
+    Value<String?> overspendBehavior = const Value.absent(),
+    Value<int?> autoFillDay = const Value.absent(),
+    Value<String?> lowBalanceAlert = const Value.absent(),
+    Value<DateTime?> targetDate = const Value.absent(),
   }) => QuestLocation(
     id: id ?? this.id,
     name: name ?? this.name,
@@ -775,6 +1096,25 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
     isUnderSiege: isUnderSiege ?? this.isUnderSiege,
     x: x ?? this.x,
     y: y ?? this.y,
+    iconCodePoint: iconCodePoint.present
+        ? iconCodePoint.value
+        : this.iconCodePoint,
+    colorValue: colorValue.present ? colorValue.value : this.colorValue,
+    fundingSource: fundingSource.present
+        ? fundingSource.value
+        : this.fundingSource,
+    renewalFrequency: renewalFrequency.present
+        ? renewalFrequency.value
+        : this.renewalFrequency,
+    rolloverRule: rolloverRule.present ? rolloverRule.value : this.rolloverRule,
+    overspendBehavior: overspendBehavior.present
+        ? overspendBehavior.value
+        : this.overspendBehavior,
+    autoFillDay: autoFillDay.present ? autoFillDay.value : this.autoFillDay,
+    lowBalanceAlert: lowBalanceAlert.present
+        ? lowBalanceAlert.value
+        : this.lowBalanceAlert,
+    targetDate: targetDate.present ? targetDate.value : this.targetDate,
   );
   QuestLocation copyWithCompanion(QuestLocationsCompanion data) {
     return QuestLocation(
@@ -792,6 +1132,33 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
           : this.isUnderSiege,
       x: data.x.present ? data.x.value : this.x,
       y: data.y.present ? data.y.value : this.y,
+      iconCodePoint: data.iconCodePoint.present
+          ? data.iconCodePoint.value
+          : this.iconCodePoint,
+      colorValue: data.colorValue.present
+          ? data.colorValue.value
+          : this.colorValue,
+      fundingSource: data.fundingSource.present
+          ? data.fundingSource.value
+          : this.fundingSource,
+      renewalFrequency: data.renewalFrequency.present
+          ? data.renewalFrequency.value
+          : this.renewalFrequency,
+      rolloverRule: data.rolloverRule.present
+          ? data.rolloverRule.value
+          : this.rolloverRule,
+      overspendBehavior: data.overspendBehavior.present
+          ? data.overspendBehavior.value
+          : this.overspendBehavior,
+      autoFillDay: data.autoFillDay.present
+          ? data.autoFillDay.value
+          : this.autoFillDay,
+      lowBalanceAlert: data.lowBalanceAlert.present
+          ? data.lowBalanceAlert.value
+          : this.lowBalanceAlert,
+      targetDate: data.targetDate.present
+          ? data.targetDate.value
+          : this.targetDate,
     );
   }
 
@@ -805,7 +1172,16 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
           ..write('allocatedBudget: $allocatedBudget, ')
           ..write('isUnderSiege: $isUnderSiege, ')
           ..write('x: $x, ')
-          ..write('y: $y')
+          ..write('y: $y, ')
+          ..write('iconCodePoint: $iconCodePoint, ')
+          ..write('colorValue: $colorValue, ')
+          ..write('fundingSource: $fundingSource, ')
+          ..write('renewalFrequency: $renewalFrequency, ')
+          ..write('rolloverRule: $rolloverRule, ')
+          ..write('overspendBehavior: $overspendBehavior, ')
+          ..write('autoFillDay: $autoFillDay, ')
+          ..write('lowBalanceAlert: $lowBalanceAlert, ')
+          ..write('targetDate: $targetDate')
           ..write(')'))
         .toString();
   }
@@ -820,6 +1196,15 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
     isUnderSiege,
     x,
     y,
+    iconCodePoint,
+    colorValue,
+    fundingSource,
+    renewalFrequency,
+    rolloverRule,
+    overspendBehavior,
+    autoFillDay,
+    lowBalanceAlert,
+    targetDate,
   );
   @override
   bool operator ==(Object other) =>
@@ -832,7 +1217,16 @@ class QuestLocation extends DataClass implements Insertable<QuestLocation> {
           other.allocatedBudget == this.allocatedBudget &&
           other.isUnderSiege == this.isUnderSiege &&
           other.x == this.x &&
-          other.y == this.y);
+          other.y == this.y &&
+          other.iconCodePoint == this.iconCodePoint &&
+          other.colorValue == this.colorValue &&
+          other.fundingSource == this.fundingSource &&
+          other.renewalFrequency == this.renewalFrequency &&
+          other.rolloverRule == this.rolloverRule &&
+          other.overspendBehavior == this.overspendBehavior &&
+          other.autoFillDay == this.autoFillDay &&
+          other.lowBalanceAlert == this.lowBalanceAlert &&
+          other.targetDate == this.targetDate);
 }
 
 class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
@@ -844,6 +1238,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
   final Value<bool> isUnderSiege;
   final Value<double> x;
   final Value<double> y;
+  final Value<int?> iconCodePoint;
+  final Value<int?> colorValue;
+  final Value<String?> fundingSource;
+  final Value<String?> renewalFrequency;
+  final Value<String?> rolloverRule;
+  final Value<String?> overspendBehavior;
+  final Value<int?> autoFillDay;
+  final Value<String?> lowBalanceAlert;
+  final Value<DateTime?> targetDate;
   final Value<int> rowid;
   const QuestLocationsCompanion({
     this.id = const Value.absent(),
@@ -854,6 +1257,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
     this.isUnderSiege = const Value.absent(),
     this.x = const Value.absent(),
     this.y = const Value.absent(),
+    this.iconCodePoint = const Value.absent(),
+    this.colorValue = const Value.absent(),
+    this.fundingSource = const Value.absent(),
+    this.renewalFrequency = const Value.absent(),
+    this.rolloverRule = const Value.absent(),
+    this.overspendBehavior = const Value.absent(),
+    this.autoFillDay = const Value.absent(),
+    this.lowBalanceAlert = const Value.absent(),
+    this.targetDate = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   QuestLocationsCompanion.insert({
@@ -865,6 +1277,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
     this.isUnderSiege = const Value.absent(),
     required double x,
     required double y,
+    this.iconCodePoint = const Value.absent(),
+    this.colorValue = const Value.absent(),
+    this.fundingSource = const Value.absent(),
+    this.renewalFrequency = const Value.absent(),
+    this.rolloverRule = const Value.absent(),
+    this.overspendBehavior = const Value.absent(),
+    this.autoFillDay = const Value.absent(),
+    this.lowBalanceAlert = const Value.absent(),
+    this.targetDate = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        name = Value(name),
@@ -882,6 +1303,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
     Expression<bool>? isUnderSiege,
     Expression<double>? x,
     Expression<double>? y,
+    Expression<int>? iconCodePoint,
+    Expression<int>? colorValue,
+    Expression<String>? fundingSource,
+    Expression<String>? renewalFrequency,
+    Expression<String>? rolloverRule,
+    Expression<String>? overspendBehavior,
+    Expression<int>? autoFillDay,
+    Expression<String>? lowBalanceAlert,
+    Expression<DateTime>? targetDate,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -893,6 +1323,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
       if (isUnderSiege != null) 'is_under_siege': isUnderSiege,
       if (x != null) 'x': x,
       if (y != null) 'y': y,
+      if (iconCodePoint != null) 'icon_code_point': iconCodePoint,
+      if (colorValue != null) 'color_value': colorValue,
+      if (fundingSource != null) 'funding_source': fundingSource,
+      if (renewalFrequency != null) 'renewal_frequency': renewalFrequency,
+      if (rolloverRule != null) 'rollover_rule': rolloverRule,
+      if (overspendBehavior != null) 'overspend_behavior': overspendBehavior,
+      if (autoFillDay != null) 'auto_fill_day': autoFillDay,
+      if (lowBalanceAlert != null) 'low_balance_alert': lowBalanceAlert,
+      if (targetDate != null) 'target_date': targetDate,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -906,6 +1345,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
     Value<bool>? isUnderSiege,
     Value<double>? x,
     Value<double>? y,
+    Value<int?>? iconCodePoint,
+    Value<int?>? colorValue,
+    Value<String?>? fundingSource,
+    Value<String?>? renewalFrequency,
+    Value<String?>? rolloverRule,
+    Value<String?>? overspendBehavior,
+    Value<int?>? autoFillDay,
+    Value<String?>? lowBalanceAlert,
+    Value<DateTime?>? targetDate,
     Value<int>? rowid,
   }) {
     return QuestLocationsCompanion(
@@ -917,6 +1365,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
       isUnderSiege: isUnderSiege ?? this.isUnderSiege,
       x: x ?? this.x,
       y: y ?? this.y,
+      iconCodePoint: iconCodePoint ?? this.iconCodePoint,
+      colorValue: colorValue ?? this.colorValue,
+      fundingSource: fundingSource ?? this.fundingSource,
+      renewalFrequency: renewalFrequency ?? this.renewalFrequency,
+      rolloverRule: rolloverRule ?? this.rolloverRule,
+      overspendBehavior: overspendBehavior ?? this.overspendBehavior,
+      autoFillDay: autoFillDay ?? this.autoFillDay,
+      lowBalanceAlert: lowBalanceAlert ?? this.lowBalanceAlert,
+      targetDate: targetDate ?? this.targetDate,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -948,6 +1405,33 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
     if (y.present) {
       map['y'] = Variable<double>(y.value);
     }
+    if (iconCodePoint.present) {
+      map['icon_code_point'] = Variable<int>(iconCodePoint.value);
+    }
+    if (colorValue.present) {
+      map['color_value'] = Variable<int>(colorValue.value);
+    }
+    if (fundingSource.present) {
+      map['funding_source'] = Variable<String>(fundingSource.value);
+    }
+    if (renewalFrequency.present) {
+      map['renewal_frequency'] = Variable<String>(renewalFrequency.value);
+    }
+    if (rolloverRule.present) {
+      map['rollover_rule'] = Variable<String>(rolloverRule.value);
+    }
+    if (overspendBehavior.present) {
+      map['overspend_behavior'] = Variable<String>(overspendBehavior.value);
+    }
+    if (autoFillDay.present) {
+      map['auto_fill_day'] = Variable<int>(autoFillDay.value);
+    }
+    if (lowBalanceAlert.present) {
+      map['low_balance_alert'] = Variable<String>(lowBalanceAlert.value);
+    }
+    if (targetDate.present) {
+      map['target_date'] = Variable<DateTime>(targetDate.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -965,6 +1449,15 @@ class QuestLocationsCompanion extends UpdateCompanion<QuestLocation> {
           ..write('isUnderSiege: $isUnderSiege, ')
           ..write('x: $x, ')
           ..write('y: $y, ')
+          ..write('iconCodePoint: $iconCodePoint, ')
+          ..write('colorValue: $colorValue, ')
+          ..write('fundingSource: $fundingSource, ')
+          ..write('renewalFrequency: $renewalFrequency, ')
+          ..write('rolloverRule: $rolloverRule, ')
+          ..write('overspendBehavior: $overspendBehavior, ')
+          ..write('autoFillDay: $autoFillDay, ')
+          ..write('lowBalanceAlert: $lowBalanceAlert, ')
+          ..write('targetDate: $targetDate, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -2389,6 +2882,15 @@ typedef $$QuestLocationsTableCreateCompanionBuilder =
       Value<bool> isUnderSiege,
       required double x,
       required double y,
+      Value<int?> iconCodePoint,
+      Value<int?> colorValue,
+      Value<String?> fundingSource,
+      Value<String?> renewalFrequency,
+      Value<String?> rolloverRule,
+      Value<String?> overspendBehavior,
+      Value<int?> autoFillDay,
+      Value<String?> lowBalanceAlert,
+      Value<DateTime?> targetDate,
       Value<int> rowid,
     });
 typedef $$QuestLocationsTableUpdateCompanionBuilder =
@@ -2401,6 +2903,15 @@ typedef $$QuestLocationsTableUpdateCompanionBuilder =
       Value<bool> isUnderSiege,
       Value<double> x,
       Value<double> y,
+      Value<int?> iconCodePoint,
+      Value<int?> colorValue,
+      Value<String?> fundingSource,
+      Value<String?> renewalFrequency,
+      Value<String?> rolloverRule,
+      Value<String?> overspendBehavior,
+      Value<int?> autoFillDay,
+      Value<String?> lowBalanceAlert,
+      Value<DateTime?> targetDate,
       Value<int> rowid,
     });
 
@@ -2483,6 +2994,51 @@ class $$QuestLocationsTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
+  ColumnFilters<int> get iconCodePoint => $composableBuilder(
+    column: $table.iconCodePoint,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get colorValue => $composableBuilder(
+    column: $table.colorValue,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get fundingSource => $composableBuilder(
+    column: $table.fundingSource,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get renewalFrequency => $composableBuilder(
+    column: $table.renewalFrequency,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get rolloverRule => $composableBuilder(
+    column: $table.rolloverRule,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get overspendBehavior => $composableBuilder(
+    column: $table.overspendBehavior,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get autoFillDay => $composableBuilder(
+    column: $table.autoFillDay,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get lowBalanceAlert => $composableBuilder(
+    column: $table.lowBalanceAlert,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get targetDate => $composableBuilder(
+    column: $table.targetDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
   Expression<bool> transactionsRefs(
     Expression<bool> Function($$TransactionsTableFilterComposer f) f,
   ) {
@@ -2557,6 +3113,51 @@ class $$QuestLocationsTableOrderingComposer
     column: $table.y,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<int> get iconCodePoint => $composableBuilder(
+    column: $table.iconCodePoint,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get colorValue => $composableBuilder(
+    column: $table.colorValue,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get fundingSource => $composableBuilder(
+    column: $table.fundingSource,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get renewalFrequency => $composableBuilder(
+    column: $table.renewalFrequency,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get rolloverRule => $composableBuilder(
+    column: $table.rolloverRule,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get overspendBehavior => $composableBuilder(
+    column: $table.overspendBehavior,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get autoFillDay => $composableBuilder(
+    column: $table.autoFillDay,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get lowBalanceAlert => $composableBuilder(
+    column: $table.lowBalanceAlert,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get targetDate => $composableBuilder(
+    column: $table.targetDate,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$QuestLocationsTableAnnotationComposer
@@ -2597,6 +3198,51 @@ class $$QuestLocationsTableAnnotationComposer
 
   GeneratedColumn<double> get y =>
       $composableBuilder(column: $table.y, builder: (column) => column);
+
+  GeneratedColumn<int> get iconCodePoint => $composableBuilder(
+    column: $table.iconCodePoint,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get colorValue => $composableBuilder(
+    column: $table.colorValue,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get fundingSource => $composableBuilder(
+    column: $table.fundingSource,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get renewalFrequency => $composableBuilder(
+    column: $table.renewalFrequency,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get rolloverRule => $composableBuilder(
+    column: $table.rolloverRule,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get overspendBehavior => $composableBuilder(
+    column: $table.overspendBehavior,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get autoFillDay => $composableBuilder(
+    column: $table.autoFillDay,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get lowBalanceAlert => $composableBuilder(
+    column: $table.lowBalanceAlert,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get targetDate => $composableBuilder(
+    column: $table.targetDate,
+    builder: (column) => column,
+  );
 
   Expression<T> transactionsRefs<T extends Object>(
     Expression<T> Function($$TransactionsTableAnnotationComposer a) f,
@@ -2662,6 +3308,15 @@ class $$QuestLocationsTableTableManager
                 Value<bool> isUnderSiege = const Value.absent(),
                 Value<double> x = const Value.absent(),
                 Value<double> y = const Value.absent(),
+                Value<int?> iconCodePoint = const Value.absent(),
+                Value<int?> colorValue = const Value.absent(),
+                Value<String?> fundingSource = const Value.absent(),
+                Value<String?> renewalFrequency = const Value.absent(),
+                Value<String?> rolloverRule = const Value.absent(),
+                Value<String?> overspendBehavior = const Value.absent(),
+                Value<int?> autoFillDay = const Value.absent(),
+                Value<String?> lowBalanceAlert = const Value.absent(),
+                Value<DateTime?> targetDate = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => QuestLocationsCompanion(
                 id: id,
@@ -2672,6 +3327,15 @@ class $$QuestLocationsTableTableManager
                 isUnderSiege: isUnderSiege,
                 x: x,
                 y: y,
+                iconCodePoint: iconCodePoint,
+                colorValue: colorValue,
+                fundingSource: fundingSource,
+                renewalFrequency: renewalFrequency,
+                rolloverRule: rolloverRule,
+                overspendBehavior: overspendBehavior,
+                autoFillDay: autoFillDay,
+                lowBalanceAlert: lowBalanceAlert,
+                targetDate: targetDate,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -2684,6 +3348,15 @@ class $$QuestLocationsTableTableManager
                 Value<bool> isUnderSiege = const Value.absent(),
                 required double x,
                 required double y,
+                Value<int?> iconCodePoint = const Value.absent(),
+                Value<int?> colorValue = const Value.absent(),
+                Value<String?> fundingSource = const Value.absent(),
+                Value<String?> renewalFrequency = const Value.absent(),
+                Value<String?> rolloverRule = const Value.absent(),
+                Value<String?> overspendBehavior = const Value.absent(),
+                Value<int?> autoFillDay = const Value.absent(),
+                Value<String?> lowBalanceAlert = const Value.absent(),
+                Value<DateTime?> targetDate = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => QuestLocationsCompanion.insert(
                 id: id,
@@ -2694,6 +3367,15 @@ class $$QuestLocationsTableTableManager
                 isUnderSiege: isUnderSiege,
                 x: x,
                 y: y,
+                iconCodePoint: iconCodePoint,
+                colorValue: colorValue,
+                fundingSource: fundingSource,
+                renewalFrequency: renewalFrequency,
+                rolloverRule: rolloverRule,
+                overspendBehavior: overspendBehavior,
+                autoFillDay: autoFillDay,
+                lowBalanceAlert: lowBalanceAlert,
+                targetDate: targetDate,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

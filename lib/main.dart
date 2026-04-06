@@ -11,6 +11,8 @@ import 'package:envelope/services/player_repository.dart';
 import 'package:envelope/blocs/player_profile_bloc.dart';
 import 'package:envelope/ui/screens/profile_screen.dart';
 import 'package:envelope/blocs/budget_bloc.dart';
+import 'package:envelope/blocs/add_vault_bloc.dart';
+import 'package:envelope/ui/screens/add_vault_screen.dart';
 
 void main() {
   final db = AppDatabase();
@@ -49,6 +51,10 @@ final _router = GoRouter(
     GoRoute(
       path: '/treasury',
       builder: (context, state) => const TreasuryScreen(),
+    ),
+    GoRoute(
+      path: '/add-vault',
+      builder: (context, state) => const AddVaultScreen(),
     ),
   ],
 );

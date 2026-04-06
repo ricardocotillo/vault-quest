@@ -20,23 +20,45 @@ class QuestRepository {
         isUnderSiege: row.isUnderSiege,
         x: row.x,
         y: row.y,
+        iconCodePoint: row.iconCodePoint,
+        colorValue: row.colorValue,
+        fundingSource: row.fundingSource,
+        renewalFrequency: row.renewalFrequency,
+        rolloverRule: row.rolloverRule,
+        overspendBehavior: row.overspendBehavior,
+        autoFillDay: row.autoFillDay,
+        lowBalanceAlert: row.lowBalanceAlert != null
+            ? Decimal.parse(row.lowBalanceAlert!)
+            : null,
+        targetDate: row.targetDate,
       );
     }).toList();
   }
 
   Future<void> addLocation(QuestLocation location) async {
-    await _db.into(_db.questLocations).insert(
-      QuestLocationsCompanion.insert(
-        id: location.id,
-        name: location.name,
-        theme: location.theme.name,
-        currentBalance: location.currentBalance.toString(),
-        allocatedBudget: location.allocatedBudget.toString(),
-        isUnderSiege: Value(location.isUnderSiege),
-        x: location.x,
-        y: location.y,
-      ),
-    );
+    await _db
+        .into(_db.questLocations)
+        .insert(
+          QuestLocationsCompanion.insert(
+            id: location.id,
+            name: location.name,
+            theme: location.theme.name,
+            currentBalance: location.currentBalance.toString(),
+            allocatedBudget: location.allocatedBudget.toString(),
+            isUnderSiege: Value(location.isUnderSiege),
+            x: location.x,
+            y: location.y,
+            iconCodePoint: Value(location.iconCodePoint),
+            colorValue: Value(location.colorValue),
+            fundingSource: Value(location.fundingSource),
+            renewalFrequency: Value(location.renewalFrequency),
+            rolloverRule: Value(location.rolloverRule),
+            overspendBehavior: Value(location.overspendBehavior),
+            autoFillDay: Value(location.autoFillDay),
+            lowBalanceAlert: Value(location.lowBalanceAlert?.toString()),
+            targetDate: Value(location.targetDate),
+          ),
+        );
   }
 
   Future<void> updateLocationBalance(String id, Decimal newBalance) async {
@@ -48,22 +70,32 @@ class QuestRepository {
     );
   }
 
-  Future<void> addTransaction(String locationId, Decimal amount, String type, String? description) async {
-    await _db.into(_db.transactions).insert(
-      TransactionsCompanion.insert(
-        id: DateTime.now().millisecondsSinceEpoch.toString(), // Simple ID generator
-        locationId: locationId,
-        amount: amount.toString(),
-        type: type,
-        timestamp: DateTime.now(),
-        description: Value(description),
-      ),
-    );
+  Future<void> addTransaction(
+    String locationId,
+    Decimal amount,
+    String type,
+    String? description,
+  ) async {
+    await _db
+        .into(_db.transactions)
+        .insert(
+          TransactionsCompanion.insert(
+            id: DateTime.now().millisecondsSinceEpoch
+                .toString(), // Simple ID generator
+            locationId: locationId,
+            amount: amount.toString(),
+            type: type,
+            timestamp: DateTime.now(),
+            description: Value(description),
+          ),
+        );
   }
 
   // PayCycle Methods
   Future<PayCycle?> getCurrentPayCycle() async {
-    final query = _db.select(_db.payCycles)..where((t) => t.isCompleted.equals(false))..limit(1);
+    final query = _db.select(_db.payCycles)
+      ..where((t) => t.isCompleted.equals(false))
+      ..limit(1);
     final result = await query.getSingleOrNull();
     if (result == null) return null;
     return PayCycle(
@@ -85,19 +117,23 @@ class QuestRepository {
   }
 
   Future<void> startNewPayCycle(DateTime start, DateTime end) async {
-    await _db.into(_db.payCycles).insert(
-      PayCyclesCompanion.insert(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        startDate: start,
-        endDate: end,
-        isCompleted: const Value(false),
-        totalHarvested: const Value('0'),
-      ),
-    );
+    await _db
+        .into(_db.payCycles)
+        .insert(
+          PayCyclesCompanion.insert(
+            id: DateTime.now().millisecondsSinceEpoch.toString(),
+            startDate: start,
+            endDate: end,
+            isCompleted: const Value(false),
+            totalHarvested: const Value('0'),
+          ),
+        );
   }
 
   Future<List<PayCycle>> getCompletedPayCycles() async {
-    final query = _db.select(_db.payCycles)..where((t) => t.isCompleted.equals(true))..orderBy([(t) => OrderingTerm.desc(t.endDate)]);
+    final query = _db.select(_db.payCycles)
+      ..where((t) => t.isCompleted.equals(true))
+      ..orderBy([(t) => OrderingTerm.desc(t.endDate)]);
     final results = await query.get();
     return results.map((row) {
       return PayCycle(

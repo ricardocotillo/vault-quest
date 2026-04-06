@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:envelope/models/quest_location.dart';
-import 'package:envelope/core/theme/app_theme.dart';
+import 'package:envelope/ui/components/tokens.dart';
 
 class MapPainter extends CustomPainter {
   final List<QuestLocation> locations;
@@ -15,7 +15,7 @@ class MapPainter extends CustomPainter {
 
   void _drawBackground(Canvas canvas, Size size) {
     // Fill with Midnight Void
-    final paint = Paint()..color = AppTheme.midnightVoid;
+    final paint = Paint()..color = VQColors.surface;
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), paint);
 
     // Draw some "Alchemist" grid or texture?
@@ -35,7 +35,7 @@ class MapPainter extends CustomPainter {
     if (locations.length < 2) return;
 
     final linePaint = Paint()
-      ..color = AppTheme.rusticParchment.withValues(alpha: 0.2)
+      ..color = VQColors.tertiary.withValues(alpha: 0.2)
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
 

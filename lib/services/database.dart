@@ -32,6 +32,17 @@ class QuestLocations extends Table {
   RealColumn get x => real()();
   RealColumn get y => real()();
 
+  // New configuration fields
+  IntColumn get iconCodePoint => integer().nullable()();
+  IntColumn get colorValue => integer().nullable()();
+  TextColumn get fundingSource => text().nullable()();
+  TextColumn get renewalFrequency => text().nullable()();
+  TextColumn get rolloverRule => text().nullable()();
+  TextColumn get overspendBehavior => text().nullable()();
+  IntColumn get autoFillDay => integer().nullable()();
+  TextColumn get lowBalanceAlert => text().nullable()();
+  DateTimeColumn get targetDate => dateTime().nullable()();
+
   @override
   Set<Column> get primaryKey => {id};
 }
@@ -70,12 +81,33 @@ class PayCycles extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DriftDatabase(tables: [Players, QuestLocations, Transactions, Loots, PayCycles])
+@DriftDatabase(
+  tables: [Players, QuestLocations, Transactions, Loots, PayCycles],
+)
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? e]) : super(e ?? _openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onUpgrade: (m, from, to) async {
+        if (from < 2) {
+          await m.addColumn(questLocations, questLocations.iconCodePoint);
+          await m.addColumn(questLocations, questLocations.colorValue);
+          await m.addColumn(questLocations, questLocations.fundingSource);
+          await m.addColumn(questLocations, questLocations.renewalFrequency);
+          await m.addColumn(questLocations, questLocations.rolloverRule);
+          await m.addColumn(questLocations, questLocations.overspendBehavior);
+          await m.addColumn(questLocations, questLocations.autoFillDay);
+          await m.addColumn(questLocations, questLocations.lowBalanceAlert);
+          await m.addColumn(questLocations, questLocations.targetDate);
+        }
+      },
+    );
+  }
 }
 
 LazyDatabase _openConnection() {
