@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
+import 'package:envelope/blocs/add_vault_bloc.dart';
 import 'package:envelope/blocs/kingdom_map_bloc.dart';
 import 'package:envelope/core/theme/app_theme.dart';
 import 'package:envelope/models/quest_location.dart';
@@ -486,11 +487,15 @@ class _KingdomMapScreenState extends State<KingdomMapScreen>
 
     return GestureDetector(
       onTap: () {
+        final addVaultBloc = context.read<AddVaultBloc>();
         showModalBottomSheet(
           context: context,
           backgroundColor: Colors.transparent,
           isScrollControlled: true,
-          builder: (context) => const VaultPresetPicker(),
+          builder: (_) => BlocProvider.value(
+            value: addVaultBloc,
+            child: const VaultPresetPicker(),
+          ),
         );
       },
       child: Container(
